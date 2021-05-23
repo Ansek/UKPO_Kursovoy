@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,6 +25,8 @@ public class SeleniumTest {
             System.setProperty("webdriver.chrome.driver", "ChromeDriver\\chromedriver.exe");
         else
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/ChromeDriver/chromedriver");
+        ChromeOptions ChromeOptions = new ChromeOptions();
+        ChromeOptions.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
         driver = new ChromeDriver();
     }
     

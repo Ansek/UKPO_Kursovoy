@@ -22,7 +22,7 @@ public class Calculator {
      */
     public String calculate(String exp) throws Exception {
         this.exp = exp;
-        return String.format("%.3f", S());
+        return String.format("%.3f", S()).replace('.', ',');
     }
     
     // Осуществляет переход к следующему символу и осуществляет проверку
