@@ -15,8 +15,12 @@ import java.util.Stack;
  */
 public class CalculatorService {
     // Стек для хранения истории выражений
-    private final Stack<String> history = new Stack();
+    private final Stack<String> history;
 
+    public CalculatorService() {
+        history = new Stack<>();
+    }
+    
     /**
      * Формирует ответ для отображения вычисления
      * @param expression Выражение для вычисления

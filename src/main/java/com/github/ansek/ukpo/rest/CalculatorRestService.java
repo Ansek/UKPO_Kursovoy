@@ -28,8 +28,14 @@ public class CalculatorRestService {
         calculatorService = new CalculatorService();
     }
     
+    // Запрос на вычисление выражения и сохранения его в истории
     @RequestMapping(value = "/{expression}", method = RequestMethod.GET)
     public ResponseEntity<Object> calculate(@PathVariable("expression") String expression) {
+        return ResponseEntity.ok(calculatorService.calculate(expression));
+    }
+           
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<Object> calculate2(@PathParam("expression") String expression) {
         return ResponseEntity.ok(calculatorService.calculate(expression));
     }
     
