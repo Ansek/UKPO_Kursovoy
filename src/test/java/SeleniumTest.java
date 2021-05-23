@@ -23,8 +23,7 @@ public class SeleniumTest {
         if (System.getProperty("os.name").contains("Windows"))
             System.setProperty("webdriver.chrome.driver", "ChromeDriver\\chromedriver.exe");
         else
-            System.setProperty("webdriver.chrome.driver", "ChromeDriver/chromedriver");
-        System.out.println(System.getProperty("user.dir"));
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/ChromeDriver/chromedriver");
         driver = new ChromeDriver();
     }
     

@@ -17,10 +17,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity 
 public class WebSecurity extends WebSecurityConfigurerAdapter {
-    
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/home", "/", "/css/**", "/js/**", "/images/**", "/public/rest/**")
-				.permitAll().and().exceptionHandling().accessDeniedPage("/403").and().csrf().disable();
-	}
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+            http.authorizeRequests().antMatchers("/home", "/", "/css/**", "/js/**", "/images/**", "/public/rest/**")
+                            .permitAll().and().exceptionHandling().accessDeniedPage("/403").and().csrf().disable();
+    }
 }
