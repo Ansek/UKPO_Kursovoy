@@ -27,7 +27,7 @@ public class SeleniumTest {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/ChromeDriver/chromedriver");
         ChromeOptions ChromeOptions = new ChromeOptions();
         ChromeOptions.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(ChromeOptions);
     }
     
     @Test

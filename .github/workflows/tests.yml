@@ -35,7 +35,7 @@ jobs:
     - name: Run with Maven
       run: |
         mvn org.springframework.boot:spring-boot-maven-plugin:1.5.16.RELEASE:run &
-        sleep 40
+        sleep 15
 
     - name: Test with Maven     
       run: mvn test
