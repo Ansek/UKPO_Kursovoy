@@ -52,7 +52,7 @@ public class Calculator {
         double Ss = E();
         // Если слово прочитано не полностью
         if (i != exp.length())
-            throw new Exception("Выражение не прочитано полностью");
+            throw new Exception("Выражение не прочитано полностью!");
         return Ss;                
     }
     
@@ -112,24 +112,27 @@ public class Calculator {
 
     private double F() throws Exception {
         double Fs;
-        char c = exp.charAt(i);
-        if (Character.isDigit(c))
-        {
-            Fs = Character.getNumericValue(c);
-        }
-        else if (c == '(')
-        {
-            lex();
-            Fs = E();
-            c = exp.charAt(i);
-            if (c != ')')
+        if (i < exp.length()) {
+            char c = exp.charAt(i);
+            if (Character.isDigit(c))
             {
-                throw new Exception("Не найдена закрывающая скобка!");
+                Fs = Character.getNumericValue(c);
             }
+            else if (c == '(')
+            {
+                lex();
+                Fs = E();
+                if (i >= exp.length() || exp.charAt(i) != ')')
+                {
+                    throw new Exception("Не найдена закрывающая скобка!");
+                }
+            }
+            else
+                throw new Exception("Cинтаксическая ошибка!");
+            lex();
         }
         else
-            throw new Exception("Cинтаксическая ошибка!");
-        lex();
+            throw new Exception("Неожиданный конец строки!");
         return Fs;        
     }    
     
